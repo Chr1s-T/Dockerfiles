@@ -18,9 +18,7 @@ RUN apt-get -y update && \
       mkdir kern && \
       cp /boot/vmlinuz* kern/bzImage && \
       cp /boot/System.map* kern/kallsyms && \
-      make inputs ) && \
-    apt-get -y autoremove && \
-    rm -rf /var/lib/apt/lists/*
+      make inputs )
 
 WORKDIR /TriforceLinuxSyscallFuzzer
 CMD ./runFuzz -M M0
