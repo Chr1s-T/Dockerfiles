@@ -6,7 +6,7 @@ MAINTAINER Richard Johnson “rjohnson@moflow.org”
 ENV K kern
 
 RUN cat /etc/apt/sources.list && \
-    sed -i -- 's/#deb-src/deb-src/g' /etc/apt/sources.list && sudo sed -i -- 's/# deb-src/deb-src/g' /etc/apt/sources.list && \
+    sed -i -- 's/#deb-src/deb-src/g' /etc/apt/sources.list && sed -i -- 's/# deb-src/deb-src/g' /etc/apt/sources.list && \
     sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list && \
     apt-get -y update && \
     apt-get -y build-dep qemu && \
