@@ -5,7 +5,7 @@ MAINTAINER Richard Johnson “rjohnson@moflow.org”
 
 ENV K kern
 
-RUN  sed -i -- ‘s/#deb-src/deb-src/g‘ /etc/apt/sources.list && sudo sed -i -- ‘s/# deb-src/deb-src/g‘ /etc/apt/sources.list && \
+RUN sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list && \
     apt-get -y update && \
     apt-get -y build-dep qemu && \
     apt-get -y install build-essential curl git \
